@@ -11,5 +11,8 @@
         "psr-4": {
             "ALS\\Framework\\":"src"
         }
+    },
+    "scripts": {
+        "server": "php -S localhost:8080"
     }
 }
