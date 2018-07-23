@@ -2,18 +2,14 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-new ALS\Framework\Router;
-new App\Module;
+$router = new ALS\Framework\Router;
 
-$route = $_SERVER['PATH_INFO'] ?? '/';
-//var_dump($_SERVER['PATH_INFO'] ?? '/');
-//var_dump($_SERVER);
-//print_r($GLOBALS);
+$router->add('/', function() {
+    return 'Estamos na homepage';
+});
 
-if ($route == '/') {
-    echo 'Estamos na homepage';
-} elseif ($route == '/projects') {
-    echo 'Estamos listando projetos';
-} else {
-    echo 'Página não encontrada';
-}
+$router->add('/projects', function() {
+    return 'Estamos listando projetos';
+});
+
+echo $router->run();
