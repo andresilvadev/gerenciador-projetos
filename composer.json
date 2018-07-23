@@ -1,0 +1,15 @@
+{
+    "name": "andre/gerenciador-projetos",
+    "authors": [
+        {
+            "name": "Andre Luiz da Silva",
+            "email": "andreluiz1013@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ALS\\Framework\\":"src"
+        }
+    }
+}
