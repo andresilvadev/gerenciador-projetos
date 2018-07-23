@@ -4,15 +4,15 @@ require __DIR__.'/vendor/autoload.php';
 
 $router = new ALS\Framework\Router;
 
-$router->add('/', function() {
+$router->add('GET','/', function() {
     return 'Estamos na homepage';
 });
 
-$router->add('/projects', function() {
+$router->add('GET','/projects', function() {
     return 'Estamos listando os projetos' ;
 });
 
-$router->add('/projects/(\d+)', function($params) {
+$router->add('GET','/projects/(\d+)', function($params) {
     return 'Estamos listando o projeto de id: ' . $params[1];
 });
 
