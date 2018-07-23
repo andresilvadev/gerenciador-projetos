@@ -6,8 +6,6 @@ class Router
 {
     public function __construct() 
     {
-        echo 'Olá';
+        //echo 'Olá gerenciador de projetos ';
     }
 }
-
-?>
