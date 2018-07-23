@@ -9,7 +9,11 @@ $router->add('/', function() {
 });
 
 $router->add('/projects', function() {
-    return 'Estamos listando projetos';
+    return 'Estamos listando os projetos' ;
+});
+
+$router->add('/projects/(\d+)', function($params) {
+    return 'Estamos listando o projeto de id: ' . $params[1];
 });
 
 echo $router->run();
