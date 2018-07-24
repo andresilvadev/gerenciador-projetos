@@ -16,4 +16,11 @@ $router->add('GET','/projects/(\d+)', function($params) {
     return 'Estamos listando o projeto de id: ' . $params[1];
 });
 
-echo $router->run();
+try {
+    echo $router->run();
+} catch (\ALS\Framework\Exceptions\HttpException $e) {
+    echo json_encode([
+        'error' => true,
+        'message' => $e->getMessage()
+        ]);
+}
