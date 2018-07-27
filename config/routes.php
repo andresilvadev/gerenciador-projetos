@@ -1,10 +1,19 @@
 <?php
 
+use App\Models\Users;
+
 $router->add('GET','/', function() use ($container) {
-    $pdo = $container['db'];
+    //$pdo = $container['db'];
     //var_dump($pdo);
 
-    return 'Estamos na homepage';
+    return '<br> Estamos na homepage';
+});
+
+$router->add('GET','/users/(\d+)', function($params) use ($container) {
+    $user = new Users($container);
+    $data = $user->get($params[1]);
+
+    return 'Meu nome é ' . $data['name'];
 });
 
 $router->add('GET','/projects', function() {
