@@ -9,7 +9,11 @@ require __DIR__.'/config/routes.php';
 
 
 try {
-    echo $router->run();
+    $result = $router->run();
+
+    $response = new ALS\Framework\Response;
+    $response($result['action'],$result['params']);
+
 } catch (\ALS\Framework\Exceptions\HttpException $e) {
     echo json_encode([
         'error' => true,
