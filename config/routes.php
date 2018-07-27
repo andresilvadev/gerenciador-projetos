@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Users;
-
 $router->add('GET','/', function() use ($container) {
     //$pdo = $container['db'];
     //var_dump($pdo);
@@ -10,10 +8,7 @@ $router->add('GET','/', function() use ($container) {
 });
 
 $router->add('GET','/users/(\d+)', function($params) use ($container) {
-    $user = new Users($container);
-    $data = $user->get($params[1]);
-
-    return 'Meu nome é ' . $data['name'];
+    return (new \App\Controllers\UsersController($container))->show($params[1]);
 });
 
 $router->add('GET','/projects', function() {
